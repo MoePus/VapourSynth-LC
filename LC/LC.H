@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>  
 #include <algorithm> 
+#include <math.h>
 typedef unsigned char  BYTE;
 typedef unsigned short WORD;
 typedef unsigned int   DWORD;
@@ -53,7 +54,7 @@ private:
 		}
 	}
 public:
-	LC_Process::LC_Process(const LC_BASIC_DATA &_d, int n, VSFrameContext *_frameCtx, VSCore *_core, const VSAPI *_vsapi)
+	LC_Process(const LC_BASIC_DATA &_d, int n, VSFrameContext *_frameCtx, VSCore *_core, const VSAPI *_vsapi)
 		:core(_core), frameCtx(_frameCtx), vsapi(_vsapi), d(_d) 
 	{
 		frame = n;
@@ -77,7 +78,7 @@ public:
 		}
 	};
 
-	LC_Process::~LC_Process()
+	~LC_Process()
 	{
 		vsapi->freeFrame(src);
 	}
